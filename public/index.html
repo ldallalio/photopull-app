@@ -28,14 +28,42 @@
 		<title>React App</title>
 	</head>
 	<body>
+		<!-- <script>
+			window.fbAsyncInit = function () {
+				FB.init({
+					appId: '513045333146876',
+					autoLogAppEvents: true,
+					xfbml: true,
+					version: 'v12.0',
+				});
+
+				FB.getLoginStatus(function (response) {
+					console.log(response);
+				});
+
+				FB.login(
+					function (response) {
+						// handle the response
+					},
+					{ scope: 'public_profile,email' },
+				);
+				/* FB.login(function (response) {
+
+					if (response.authResponse) {
+						console.log('Welcome!  Fetching your information.... ');
+						FB.api('/me', function (response) {
+							console.log('Good to see you, ' + response.name + '.');
+						});
+					} else {
+						console.log('User cancelled login or did not fully authorize.');
+					}
+				});
+
+				<div id="fb-root"></div> */
+			};
+		</script> -->
+
 		<noscript>You need to enable JavaScript to run this app.</noscript>
 		<div id="root"></div>
-
-		<script
-			async
-			defer
-			crossorigin="anonymous"
-			src="https://connect.facebook.net/en_US/sdk.js"
-		></script>
 	</body>
 </html>

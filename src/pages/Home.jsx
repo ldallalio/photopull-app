@@ -1,4 +1,5 @@
 import Facebook from '../components/Facebook';
+import { Login } from '../components/FacebookUserLogin';
 
 function Home() {
 	return (
@@ -6,7 +7,10 @@ function Home() {
 			<h1 className='text-3xl font-bold underline pb-5'>Hello world!</h1>
 
 			<div className='flex flex-auto px-6'></div>
-			<Facebook />
+			<Login />
+			<div className='my-100'>
+				<Facebook />
+			</div>
 		</div>
 	);
 }
