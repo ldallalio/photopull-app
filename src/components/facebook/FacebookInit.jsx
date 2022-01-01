@@ -1,4 +1,3 @@
-import { data } from 'autoprefixer';
 import { useState } from 'react';
 const facebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
 

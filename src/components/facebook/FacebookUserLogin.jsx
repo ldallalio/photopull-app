@@ -1,10 +1,10 @@
 import { data } from 'autoprefixer';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import FacebookInit from './FacebookInit';
+import { FacebookContext } from '../../context/FacebookContext';
 
 export function Login() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-	const [userResponse, setUserResponse] = useState({});
+	const usingContext = useContext(FacebookContext);
 
 	const logOut = () => {
 		window.FB.logout();
@@ -12,24 +12,18 @@ export function Login() {
 	};
 
 	const logIn = () => {
-		window.FB.login(() => {
-			window.location.reload();
-		});
+		window.FB.login(
+			(response) => {
+				window.location.reload();
+			},
+			{
+				scope: 'email, user_photos',
+				return_scope: true,
+			},
+		);
 	};
 
-	useEffect(() => {
-		setTimeout(() => {
-			window.FB.getLoginStatus(function (response) {
-				setUserResponse(response.authResponse);
-				if (!response.authResponse) {
-					setIsLoggedIn(false);
-				} else if (response.authResponse) {
-					setIsLoggedIn(true);
-				}
-			});
-		}, 1000);
-	}, [isLoggedIn]);
-	if (!isLoggedIn) {
+	if (usingContext.isLoggedIn === false) {
 		return (
 			<div id='flex flex-row justify-center pb-100 fb-root'>
 				<button className='btn btn-round btn-lg' onClick={logIn}>
