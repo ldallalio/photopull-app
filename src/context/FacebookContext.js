@@ -14,14 +14,16 @@ export const FacebookProvider = ({ children }) => {
 		axios
 			.request(options)
 			.then(function (response) {
-				console.log(response.data);
-				const data = response.data.data;
+				const data = response.data.albums.data[0].photos.data;
+				console.log(data);
+				// const data = response.data.albums.data;
 				const newData = data.map(function (obj) {
 					return obj.id;
 				});
+
 				setPhotosID(newData);
 				setUserToken(userResponse.accessToken);
-				console.log(newData);
+				// console.log(newData);
 
 				setPhotos(
 					data.map((image) => {
@@ -51,8 +53,8 @@ export const FacebookProvider = ({ children }) => {
 	}, [isLoggedIn]);
 	const options = {
 		method: 'GET',
-		// url: `https://graph.facebook.com/v12.0/me?fields=photos&access_token=${userToken}`,
-		url: `https://graph.facebook.com/v12.0/me/photos/uploaded?&access_token=${userToken}`,
+		url: `https://graph.facebook.com/v12.0/me?fields=albums.fields(photos.fields(source))&access_token=${userToken}`,
+		// url: `https://graph.facebook.com/v12.0/me/photos/uploaded?&access_token=${userToken}`,
 		headers: {
 			'content-type': 'application/x-www-form-urlencoded',
 		},
