@@ -1,6 +1,6 @@
 import Facebook from '../components/facebook/FacebookPhotos';
 import { Login } from '../components/facebook/FacebookUserLogin';
-import { useState, useEffect, useContext } from 'react';
+import { useContext } from 'react';
 import { FacebookContext } from '../context/FacebookContext';
 
 function Home() {
@@ -15,6 +15,12 @@ function Home() {
 				<Login />
 				<div className='my-100'>
 					<Facebook />
+					<a
+						id='download_image'
+						href='/'
+						download='https://scontent-atl3-2.xx.fbcdn.net/v/t1.18169-9/13697208_10210260206649479_1066263393908303929_n.jpg'>
+						Download 2
+					</a>
 				</div>
 			</div>
 		);
@@ -28,3 +34,13 @@ function Home() {
 }
 
 export default Home;
+// var images = document.getElementsByTagName('img');
+// var i = 0;
+
+// setInterval(function () {
+// 	if (images.length > i) {
+// 		window.saveAs(images[i].src, `myImages ${i}`);
+// 		i++;
+// 		// window.saveAs(images[i]);
+// 	}
+// }, 1000);
