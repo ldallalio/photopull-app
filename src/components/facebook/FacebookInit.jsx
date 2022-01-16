@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import axios from 'axios';
+import { FacebookContext } from '../../context/FacebookContext';
 const facebookAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
 
 export function FacebookInit() {
+	const usingContext = useContext(FacebookContext);
+
 	const [userToken, setUserToken] = useState({});
-	return new Promise((resolve) => {
+
+	new Promise((resolve) => {
 		// wait for facebook sdk to initialize before starting the react app
 		window.fbAsyncInit = function () {
 			window.FB.init({

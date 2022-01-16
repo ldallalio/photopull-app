@@ -17,7 +17,7 @@ export function Login() {
 				window.location.reload();
 			},
 			{
-				scope: 'email, user_photos',
+				scope: 'email, user_photos, public_profile',
 				return_scope: true,
 			},
 		);
