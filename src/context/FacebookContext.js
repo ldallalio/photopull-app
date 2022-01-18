@@ -90,16 +90,25 @@ export const FacebookProvider = ({ children }) => {
 
 	//Download all photos
 
-	const downloadAll = () => {
+	const downloadAll = async () => {
 		// Create and append a link
 		let link = document.createElement('a');
 		document.documentElement.append(link);
 
 		const imgArr = document.querySelectorAll('img');
 		for (let i = 0; i < imgArr.length; i++) {
-			// Set the download name and href
-			link.setAttribute('download', `image_${i}.jpg`);
-			link.href = imgArr[i].src;
+			await fetch(imgArr[i].src)
+				.then((res) => res.blob()) // Gets the response and returns it as a blob
+				.then((blob) => {
+					let objectURL = URL.createObjectURL(blob);
+
+					// Set the download name and href
+					link.setAttribute('download', `image_${i}.jpg`);
+					link.href = objectURL;
+
+					// Auto click the link
+					link.click();
+				});
 		}
 	};
 
