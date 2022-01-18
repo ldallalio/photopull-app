@@ -13,3 +13,7 @@ img {
 	background-size: cover;
 	min-height: 400px;
 }
+
+.card {
+	flex-direction: row;
+}
