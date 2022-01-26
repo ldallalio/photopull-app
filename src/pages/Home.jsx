@@ -29,9 +29,9 @@ function Home() {
 						<figure className='h-72 '>
 							<img src={Logo} alt='' srcset='' />
 						</figure>
-						<div className='card-body'>Login to Download Photos</div>
+						<Login />
 					</div>
-					<Login />
+
 					<Facebook />
 				</div>
 			</div>
@@ -41,9 +41,15 @@ function Home() {
 			<div className='hero rounded-xl shadow-2xl h-80'>
 				<div className='hero-overlay bg-opacity-40'></div>
 				<div className='hero-content flex-col align-center'>
-					<h1 className='text-3xl font-bold underline pb-5'>Hello world!</h1>
-					<Login />
-					<div className='justify-center'></div>
+					<div className='card max-w-md inline text-center shadow-2xl bg-neutral '>
+						<figure className='h-72 '>
+							<img src={Logo} alt='' srcset='' />
+						</figure>
+						<div className='card-body max-w-xs mx-auto rounded-xl'>
+							Welcome to PhotoPull! Please login to download your photos!
+						</div>
+						<Login />
+					</div>
 				</div>
 			</div>
 		);

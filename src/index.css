@@ -17,3 +17,7 @@ img {
 .card {
 	flex-direction: row;
 }
+
+.facebook {
+	background-color: #3b5998;
+}

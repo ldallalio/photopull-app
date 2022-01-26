@@ -26,15 +26,15 @@ export function Login() {
 	if (usingContext.isLoggedIn === false) {
 		return (
 			<div id='flex flex-row justify-center pb-100 fb-root'>
-				<button className='btn btn-round btn-lg' onClick={logIn}>
-					Login
+				<button className='btn btn-round btn-lg facebook mb-8' onClick={logIn}>
+					Login with Facebook
 				</button>
 			</div>
 		);
 	} else {
 		return (
 			<div id='flex flex-row justify-center pb-100 fb-root'>
-				<button className='btn btn-round btn-lg' onClick={logOut}>
+				<button className='btn btn-round btn-lg facebook mb-8' onClick={logOut}>
 					Logout
 				</button>
 			</div>
