@@ -6,7 +6,7 @@ function Facebook() {
 	const usingContext = useContext(FacebookContext);
 	if (!usingContext.photoGrid) {
 		return (
-			<button onClick={usingContext.getData} className='btn btn-primary mb-10'>
+			<button onClick={usingContext.getData} className='btn btn-accent mb-10'>
 				View Photos
 			</button>
 		);
