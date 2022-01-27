@@ -1,5 +1,7 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FacebookContext } from '../context/FacebookContext';
+import { Login } from './facebook/FacebookUserLogin';
 
 function Header() {
 	const { userInfo } = useContext(FacebookContext);
@@ -13,23 +15,32 @@ function Header() {
 				</div>
 				<div className='flex-1 px-2 mx-2'>
 					<div className='items-stretch hidden lg:flex'>
-						<a className='btn btn-ghost btn-sm rounded-btn' href='/'>
+						<Link to='/' className='btn btn-ghost btn-sm rounded-btn' href='/'>
 							Home
-						</a>
-						<a className='btn btn-ghost btn-sm rounded-btn' href='/'>
+						</Link>
+						<Link
+							to='/about'
+							className='btn btn-ghost btn-sm rounded-btn'
+							href='/'>
 							About
-						</a>
-						<a className='btn btn-ghost btn-sm rounded-btn' href='/'>
+						</Link>
+						<Link
+							to='/contact'
+							className='btn btn-ghost btn-sm rounded-btn'
+							href='/'>
 							Contact
-						</a>
+						</Link>
 					</div>
 				</div>
-				{userInfo === !undefined}
-				{
+				{userName ? (
 					<div className='flex-none'>
-						<h2 className='pr-10'>Welcome {userName}</h2>
+						<h2 className='pr-10'>Welcome {userName} !</h2>
 					</div>
-				}
+				) : (
+					<div className='flex-none'>
+						<h2 className='pr-10'></h2>
+					</div>
+				)}
 			</div>
 		</div>
 	);

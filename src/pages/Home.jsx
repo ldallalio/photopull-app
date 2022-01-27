@@ -10,18 +10,6 @@ function Home() {
 
 	if (loggedIn === true) {
 		return (
-			// 			<div class="card text-center shadow-2xl">
-			//   <figure class="px-10 pt-10">
-			//     <img src="https://picsum.photos/id/1005/400/250" class="rounded-xl">
-			//   </figure>
-			//   <div class="card-body">
-			//     <h2 class="card-title">shadow, center, padding</h2>
-			//     <p>Rerum reiciendis beatae tenetur excepturi aut pariatur est eos. Sit sit necessitatibus veritatis sed molestiae voluptates incidunt iure sapiente.</p>
-			//     <div class="justify-center card-actions">
-			//       <button class="btn btn-outline btn-accent">More info</button>
-			//     </div>
-			//   </div>
-			// </div>
 			<div className='hero rounded-xl shadow-2xl h-80'>
 				<div className='hero-overlay bg-opacity-40'></div>
 				<div className='hero-content flex-col align-center'>
@@ -45,7 +33,7 @@ function Home() {
 						<figure className='h-72 '>
 							<img src={Logo} alt='' srcset='' />
 						</figure>
-						<div className='card-body max-w-xs mx-auto rounded-xl'>
+						<div className='card-body text-xl max-w-xs mx-auto rounded-xl'>
 							Welcome to PhotoPull! Please login to download your photos!
 						</div>
 						<Login />
