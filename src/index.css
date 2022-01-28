@@ -16,8 +16,26 @@ img {
 
 .card {
 	flex-direction: row;
+	min-width: 400px;
 }
 
 .facebook {
 	background-color: #3b5998;
 }
+
+@media (max-width: 1080px) {
+	.hero {
+		min-height: 200px;
+	}
+	.navbar {
+		flex-direction: column;
+	}
+	.welcome{
+		display: none;
+	}
+
+	}
+
+	
+
+
