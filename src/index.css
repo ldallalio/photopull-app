@@ -14,9 +14,9 @@ img {
 	min-height: 400px;
 }
 
-.card {
+.card.page {
 	flex-direction: row;
-	min-width: 400px;
+	min-width: 400px;	
 }
 
 .facebook {
