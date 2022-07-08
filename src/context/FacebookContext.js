@@ -13,6 +13,7 @@ export const FacebookProvider = ({ children }) => {
 	const [userToken, setUserToken] = useState(null);
 	const [photoGrid, setPhotoGrid] = useState(false);
 	const [userInfo, setUserInfo] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 
 	const myAlbumArr = [];
 	const photoIDarr = [];
@@ -38,7 +39,8 @@ export const FacebookProvider = ({ children }) => {
 	};
 	// This function will get the user's photos
 	const getData = async () => {
-		axios
+		setIsLoading(true);
+		await axios
 			.request(options1)
 			.then(function (response) {
 				const albums = response.data.albums;
@@ -59,6 +61,7 @@ export const FacebookProvider = ({ children }) => {
 					}),
 				);
 				setPhotoGrid(true);
+				setIsLoading(false);
 			})
 			.catch(function (error) {
 				console.error(error);
@@ -126,6 +129,7 @@ export const FacebookProvider = ({ children }) => {
 				photos,
 				userToken,
 				photoGrid,
+				isLoading,
 			}}>
 			{children}
 		</FacebookContext.Provider>

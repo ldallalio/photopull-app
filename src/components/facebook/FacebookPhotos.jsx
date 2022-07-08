@@ -4,6 +4,7 @@ import { FacebookContext } from '../../context/FacebookContext';
 
 function Facebook() {
 	const usingContext = useContext(FacebookContext);
+	const isLoading = usingContext.isLoading;
 	if (!usingContext.photoGrid) {
 		return (
 			<button onClick={usingContext.getData} className='btn btn-accent mb-10'>
@@ -11,6 +12,9 @@ function Facebook() {
 			</button>
 		);
 	} else {
+		if (isLoading) {
+			return <div>Loading...</div>;
+		}
 		return (
 			<div className='mx-auto'>
 				<div className=' mt-10 '>
@@ -22,9 +26,10 @@ function Facebook() {
 					<ul className='grid grid-cols-5 gap-3 mb-40	'>
 						{usingContext.photos.map((photo, i) => {
 							const images = `https://graph.facebook.com/v12.0/${photo}/picture?type=normal&access_token=${usingContext.userToken}`;
-							console.log();
 							return (
-								<li key={i} className='card card-normal shadow-2xl'>
+								<li
+									key={i}
+									className='card card-normal shadow-2xl facebookImage'>
 									<img src={images} key={i} alt='' className='img' />
 								</li>
 							);
